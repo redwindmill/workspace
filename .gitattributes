@@ -1,0 +1,12 @@
+#------------------------------------------------------------------------------#
+# SETTINGS (.editorconfig)
+# core.eol      = native
+# core.autocrlf = <windows:true> <osx/linux:input>
+#------------------------------------------------------------------------------#
+# text eol=<lf/crlf>    : always convert line endings to specified on checkout
+# text auto             : let git handle converting to workspace to repo
+# binary                : don't apply line endings or diff
+#------------------------------------------------------------------------------#
+* text=auto
+
+*.png=binary

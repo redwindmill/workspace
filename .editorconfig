@@ -1,0 +1,22 @@
+#------------------------------------------------------------------------------#
+# OPTIONS:
+# root                      = true/false
+# charset                   = latin1/utf-8/utf8-bom/utf-16be/utf-16le
+# end_of_line               = lf/cr/crlf
+# indent_size               = uint
+# indent_style              = tab/space
+# insert_final_newline      = true/false
+# tab_width                 = indent_size/uint
+# trim_trailing_whitespace  = true/false
+#------------------------------------------------------------------------------#
+root = true
+
+[*]
+charset = utf-8
+indent_size = 4
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+indent_style = space
