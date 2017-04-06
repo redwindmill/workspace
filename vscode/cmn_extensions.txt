@@ -1,0 +1,14 @@
+#--------------------------------------------------------- unix-like / windows #
+# List of visual studio code extensions.
+# NOTE: This is a 'simple line entry' file.
+#------------------------------------------------------------------------------#
+
+ms-vscode.vs-keybindings
+slevesque.vscode-hexdump
+EditorConfig.EditorConfig
+
+ms-vscode.cpptools
+ms-vscode.PowerShell
+gccfeli.vscode-lua
+PeterJausovec.vscode-docker
+donjayamanne.python
