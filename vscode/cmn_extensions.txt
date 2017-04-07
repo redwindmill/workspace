@@ -3,12 +3,11 @@
 # NOTE: This is a 'simple line entry' file.
 #------------------------------------------------------------------------------#
 
-ms-vscode.vs-keybindings
-slevesque.vscode-hexdump
+donjayamanne.python
 EditorConfig.EditorConfig
-
+gccfeli.vscode-lua
 ms-vscode.cpptools
 ms-vscode.PowerShell
-gccfeli.vscode-lua
+ms-vscode.vs-keybindings
 PeterJausovec.vscode-docker
-donjayamanne.python
+slevesque.vscode-hexdump

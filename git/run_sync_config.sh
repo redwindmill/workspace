@@ -2,7 +2,7 @@
 set -e
 
 #------------------------------------------------------------------- unix-like #
-# Simple script to soft link vim settings
+# Simple script that generates a .gitconfig file and places it in $HOME
 # WARN: Do not symlink this script or absdir might break. (ಠ_ಠ)
 #------------------------------------------------------------------------------#
 
@@ -18,8 +18,24 @@ absdir() {
 }
 
 #------------------------------------------------------------------------------#
+NAME_SCRIPT=$(basename "${0}")
+
+if [ -z "${1}" ] ; then
+	echo "${NAME_SCRIPT}: arguments are <full-name> <email>"
+	exit 1
+fi
+
+if [ -z "${2}" ] ; then
+	echo "${NAME_SCRIPT}: arguments are <full-name> <email>"
+	exit 1
+fi
+
+if [ -n "${3}" ] ; then
+	echo "${NAME_SCRIPT}: arguments are <full-name> <email>"
+	exit 1
+fi
+
 PATH_SCRIPT_DIR=$(absdir "${0}")
 
-pushd "${HOME}"
-	ln -vsf "${PATH_SCRIPT_DIR}/nix.vimrc" ".vimrc"
-popd
+sed -e "s/\${GIT_FULLNAME}/${1}/" \
+	-e "s/\${GIT_EMAIL}/${2}/" "${PATH_SCRIPT_DIR}/nix.gitconfig" > "${HOME}/.gitconfig"

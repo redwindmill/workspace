@@ -1,8 +1,8 @@
 #--------------------------------------------------------------------- windows #
 
 [user]
-	name = <FULL_NAME>
-	email = <EMAIL>
+	name = ${GIT_FULLNAME}
+	email = ${GIT_EMAIL}
 
 [core]
 	editor = vim

@@ -2,7 +2,7 @@
 {
 	"editor.cursorBlinking": "blink",
 	"editor.cursorStyle": "block",
-	"editor.fontFamily": "Consolas, Menlo",
+	"editor.fontFamily": "Consolas, Courier",
 	"editor.fontSize": 12,
 	"editor.fontWeight": "normal",
 	"editor.insertSpaces": false,
@@ -28,7 +28,7 @@
 
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.cursorStyle": "block",
-	"terminal.integrated.fontFamily": "Consolas, Menlo",
+	"terminal.integrated.fontFamily": "Consolas, Courier",
 	"terminal.integrated.fontSize": 12,
 	"terminal.integrated.scrollback": 4096,
 	"terminal.integrated.shell.linux": "/bin/bash",
