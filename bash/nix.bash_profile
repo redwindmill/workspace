@@ -3,6 +3,7 @@ export EDITOR=vim
 export VISUAL=vim
 SHELL_SESSION_HISTORY=0
 HISTFILESIZE=0
+LESSHISTSIZE=0
 SAVEHIST=0
 
 #------------------------------------------------------------------------------#
