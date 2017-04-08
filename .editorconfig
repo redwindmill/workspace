@@ -20,3 +20,9 @@ trim_trailing_whitespace = true
 
 [*.md]
 indent_style = space
+
+[*.bat]
+end_of_line = crlf
+
+[vscode/*.json]
+indent_style = space

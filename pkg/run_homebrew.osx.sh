@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-#------------------------------------------------------------------------ os x #
+#------------------------------------------------------------------------- osx #
 # Script that will update and install homebrew packages on osx.
 # NOTE: You will need homebrew first
 #

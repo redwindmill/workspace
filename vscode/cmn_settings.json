@@ -1,55 +1,55 @@
 //------------------------------------------------------- unix-like / windows //
 {
-	"editor.cursorBlinking": "blink",
-	"editor.cursorStyle": "block",
-	"editor.fontFamily": "Consolas, Courier",
-	"editor.fontSize": 12,
-	"editor.fontWeight": "normal",
-	"editor.insertSpaces": false,
-	"editor.lineNumbers": "on",
-	"editor.minimap.enabled": true,
-	"editor.minimap.maxColumn": 80,
-	"editor.minimap.renderCharacters": false,
-	"editor.quickSuggestionsDelay": 50,
-	"editor.renderControlCharacters": true,
-	"editor.renderIndentGuides": true,
-	"editor.renderLineHighlight": "all",
-	"editor.renderWhitespace": "all",
-	"editor.roundedSelection": false,
-	"editor.tabSize": 4,
-	"editor.trimAutoWhitespace": true,
-	"editor.wordWrapColumn":120,
-	"files.encoding": "utf8",
-	"window.menuBarVisibility": "toggle",
-	"window.openFilesInNewWindow": "off",
-	"workbench.activityBar.visible": false,
-	"workbench.colorTheme": "Default Dark+",
-	"workbench.iconTheme": "vs-seti",
+    "editor.cursorBlinking": "blink",
+    "editor.cursorStyle": "block",
+    "editor.fontFamily": "Consolas, Courier",
+    "editor.fontSize": 14,
+    "editor.fontWeight": "normal",
+    "editor.insertSpaces": false,
+    "editor.lineNumbers": "on",
+    "editor.minimap.enabled": true,
+    "editor.minimap.maxColumn": 80,
+    "editor.minimap.renderCharacters": false,
+    "editor.quickSuggestionsDelay": 50,
+    "editor.renderControlCharacters": true,
+    "editor.renderIndentGuides": true,
+    "editor.renderLineHighlight": "all",
+    "editor.renderWhitespace": "all",
+    "editor.roundedSelection": false,
+    "editor.tabSize": 4,
+    "editor.trimAutoWhitespace": true,
+    "editor.wordWrapColumn":120,
+    "files.encoding": "utf8",
+    "window.menuBarVisibility": "toggle",
+    "window.openFilesInNewWindow": "off",
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.iconTheme": "vs-seti",
 
-	"terminal.integrated.cursorBlinking": true,
-	"terminal.integrated.cursorStyle": "block",
-	"terminal.integrated.fontFamily": "Consolas, Courier",
-	"terminal.integrated.fontSize": 12,
-	"terminal.integrated.scrollback": 4096,
-	"terminal.integrated.shell.linux": "/bin/bash",
-	"terminal.integrated.shell.osx": "/bin/bash",
-	"terminal.integrated.shell.windows": "c:/bin/gbash.bat",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "block",
+    "terminal.integrated.fontFamily": "Consolas, Courier",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.scrollback": 4096,
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.shell.osx": "/bin/bash",
+    "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\cmd.exe",
 
-	"terminal.integrated.shellArgs.osx": [
-		"-l"
-	],
+    "terminal.integrated.shellArgs.osx": [
+        "-l"
+    ],
 
-	"files.associations": {
-		"*.gitattributes": "ini",
-		"*.gitconfig": "ini",
-		"*.gitignore": "ini"
-	},
+    "files.associations": {
+        "*.gitattributes": "ini",
+        "*.gitconfig": "ini",
+        "*.gitignore": "ini"
+    },
 
-	"[cpp]": {
-		"editor.quickSuggestions": false
-	},
+    "[cpp]": {
+        "editor.quickSuggestions": false
+    },
 
-	"[c]": {
-		"editor.quickSuggestions": false
-	}
+    "[c]": {
+        "editor.quickSuggestions": false
+    }
 }
