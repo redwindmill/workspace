@@ -141,7 +141,7 @@ ssh-key() {
 		ssh-keygen -p -f ~/.ssh/id_rsa
 		;;
 	gen)
-		ssh-keygen -t rsa -b 4096
+		ssh-keygen -t rsa -b 4096 -C ""
 		;;
 	*)
 		echo "ssh-key: <get/upd/gen> # manage ssh key"

@@ -9,8 +9,8 @@ SET PATH_SCRIPT_DIR=%PATH_SCRIPT_DIR:~0,-1%
 ::----------------------------------------------------------------------------::
 ECHO %NAME_SCRIPT%: making links
 
-IF exist %APPDATA%\code\user\settings.json DEL %APPDATA%\code\user\settings.json
-mklink %APPDATA%\code\user\settings.json %PATH_SCRIPT_DIR%\cmn_settings.json || GOTO :err
+IF exist "%APPDATA%\code\user\settings.json" DEL "%APPDATA%\code\user\settings.json"
+mklink "%APPDATA%\code\user\settings.json" "%PATH_SCRIPT_DIR%\cmn_settings.json" || GOTO :err
 
 ::----------------------------------------------------------------------------::
 GOTO :eof

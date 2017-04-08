@@ -9,8 +9,8 @@ SET PATH_SCRIPT_DIR=%PATH_SCRIPT_DIR:~0,-1%
 ::----------------------------------------------------------------------------::
 ECHO %NAME_SCRIPT%: making links
 
-IF exist %userprofile%\.vimrc DEL %userprofile%\.vimrc
-mklink %userprofile%\.vimrc %PATH_SCRIPT_DIR%\nix.vimrc || GOTO :err
+IF exist "%userprofile%\.vimrc" DEL "%userprofile%\.vimrc"
+mklink "%userprofile%\.vimrc" "%PATH_SCRIPT_DIR%\nix.vimrc" || GOTO :err
 
 ::----------------------------------------------------------------------------::
 GOTO :eof

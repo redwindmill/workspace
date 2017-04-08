@@ -19,7 +19,7 @@ SET GIT_FULLNAME=%GIT_FULLNAME:"=%
 SET GIT_EMAIL="%2"
 SET GIT_EMAIL=%GIT_EMAIL:"=%
 
-IF exist %userprofile%\.gitconfig DEL %userprofile%\.gitconfig
+IF exist "%userprofile%\.gitconfig" DEL "%userprofile%\.gitconfig"
 SET PS_COMMAND="(Get-Content '%PATH_SCRIPT_DIR%\win.gitconfig') -replace '\$\{GIT_FULLNAME\}', '%GIT_FULLNAME%' -replace '\$\{GIT_EMAIL\}', '%GIT_EMAIL%' | Set-Content -Path '%userprofile%\.gitconfig' -Encoding Ascii"
 powershell -Command %PS_COMMAND% || GOTO :err
 
