@@ -21,6 +21,7 @@ set -e
 #		Run 'rc-update del hwclock boot'
 #		Run 'rc-update add wpa_supplicant boot'
 #		Run 'rc-update add sshd'
+#		Run 'rc-update add docker boot', if using docker
 #	7	Run 'lbu commit' and 'reboot'
 #
 #	BOOT 2:

@@ -112,21 +112,26 @@ dkr-purge() {
 }
 
 dkr-cmd() {
+	local CONTAINER_TYPE
+	if [[ $(uname -m) == "arm"* ]]; then
+		CONTAINER_TYPE="armhf/"
+	fi
+
 	case "${1}" in
 	alpine)
 		if [ "${2}" ]; then
 			shift
-			docker run --rm -it alpine sh -c "$*"
+			docker run --rm -it ${CONTAINER_TYPE}alpine sh -c "$*"
 		else
-			docker run --rm -it alpine sh
+			docker run --rm -it ${CONTAINER_TYPE}alpine sh
 		fi
 		;;
 	ubuntu)
 		if [ "${2}" ]; then
 			shift
-			docker run --rm -it ubuntu bash -c "$*"
+			docker run --rm -it ${CONTAINER_TYPE}ubuntu bash -c "$*"
 		else
-			docker run --rm -it ubuntu bash
+			docker run --rm -it ${CONTAINER_TYPE}ubuntu bash
 		fi
 		;;
 	*)
