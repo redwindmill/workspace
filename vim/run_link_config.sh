@@ -19,7 +19,8 @@ absdir() {
 
 #------------------------------------------------------------------------------#
 PATH_SCRIPT_DIR=$(absdir "${0}")
+WRK_DIR="${PWD}"
 
-pushd "${HOME}"
+cd "${HOME}"
 	ln -vsf "${PATH_SCRIPT_DIR}/nix.vimrc" ".vimrc"
-popd
+cd "${WRK_DIR}"

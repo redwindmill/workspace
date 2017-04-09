@@ -19,8 +19,9 @@ absdir() {
 
 #------------------------------------------------------------------------------#
 PATH_SCRIPT_DIR=$(absdir "${0}")
+WRK_DIR="${PWD}"
 
-pushd "${HOME}"
+cd "${HOME}"
 	ln -vsf "${PATH_SCRIPT_DIR}/nix.bash_profile" ".bash_profile"
 	ln -vsf "${PATH_SCRIPT_DIR}/nix.bash_profile" ".bashrc"
-popd
+cd "${WRK_DIR}"
