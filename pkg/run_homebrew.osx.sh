@@ -20,6 +20,7 @@ PACKAGES=" \
 	go \
 	htop-osx \
 	lua \
+	nmap \
 	python \
 	vim \
 "
