@@ -554,7 +554,8 @@
 { "key": "shift+alt+1",           "command": "workbench.action.toggleEditorGroupLayout" },
 { "key": "f11",                   "command": "workbench.action.toggleFullScreen" },
 { "key": "ctrl+j",                "command": "workbench.action.togglePanel" },
-{ "key": "ctrl+b",                "command": "workbench.action.toggleSidebarVisibility" },
+{ "key": "ctrl+k b",              "command": "workbench.action.toggleSidebarVisibility" },
+{ "key": "ctrl+k shift+b",        "command": "workbench.action.toggleActivityBarVisibility" },
 { "key": "ctrl+k z",              "command": "workbench.action.toggleZenMode" },
 { "key": "ctrl+numpad_add",       "command": "workbench.action.zoomIn" },
 { "key": "ctrl+shift+=",          "command": "workbench.action.zoomIn" },
@@ -897,7 +898,6 @@
 // - workbench.action.terminal.runActiveFile
 // - workbench.action.terminal.runSelectedText
 // - workbench.action.terminal.selectDefaultShell
-// - workbench.action.toggleActivityBarVisibility
 // - workbench.action.toggleDevTools
 // - workbench.action.toggleMaximizedPanel
 // - workbench.action.toggleMenuBar

@@ -598,7 +598,8 @@
 { "key": "alt+cmd+1",             "command": "workbench.action.toggleEditorGroupLayout" },
 { "key": "ctrl+cmd+f",            "command": "workbench.action.toggleFullScreen" },
 { "key": "cmd+j",                 "command": "workbench.action.togglePanel" },
-{ "key": "cmd+b",                 "command": "workbench.action.toggleSidebarVisibility" },
+{ "key": "cmd+k b",               "command": "workbench.action.toggleSidebarVisibility" },
+{ "key": "cmd+k shift+b",         "command": "workbench.action.toggleActivityBarVisibility" },
 { "key": "cmd+k z",               "command": "workbench.action.toggleZenMode" },
 { "key": "cmd+numpad_add",        "command": "workbench.action.zoomIn" },
 { "key": "shift+cmd+=",           "command": "workbench.action.zoomIn" },
@@ -930,7 +931,6 @@
 // - workbench.action.terminal.paste
 // - workbench.action.terminal.runActiveFile
 // - workbench.action.terminal.runSelectedText
-// - workbench.action.toggleActivityBarVisibility
 // - workbench.action.toggleDevTools
 // - workbench.action.toggleMaximizedPanel
 // - workbench.action.toggleSharedProcess

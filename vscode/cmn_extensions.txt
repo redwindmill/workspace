@@ -10,4 +10,6 @@ ms-vscode.cpptools
 ms-vscode.PowerShell
 ms-vscode.vs-keybindings
 PeterJausovec.vscode-docker
+slevesque.perforce
+slevesque.shader
 slevesque.vscode-hexdump
