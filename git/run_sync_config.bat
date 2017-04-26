@@ -27,11 +27,11 @@ powershell -Command %PS_COMMAND% || GOTO :err
 GOTO :eof
 
 :invalid
-ECHO "%NAME_SCRIPT%: arguments are <full-name> <email>"
+ECHO %NAME_SCRIPT%: arguments are <full-name> <email>
 EXIT /b 1
 
 :err
-ECHO "%NAME_SCRIPT%: exiting with error '%errorlevel%'"
+ECHO %NAME_SCRIPT%: exiting with error '%errorlevel%'
 EXIT /b %errorlevel%
 
 :eof
