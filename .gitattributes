@@ -1,0 +1,66 @@
+#------------------------------------------------------------------------------#
+# SETTINGS (https://git-scm.com/docs/gitattributes)
+#
+# text eol=<lf/crlf>    : always convert line endings to specified on checkout
+# text auto             : let git handle converting to workspace to repo
+# binary                : don't apply line endings or diff
+# diff                  : define a diff driver external or internal
+#     built-in: ada, bibtex, cpp, csharp, css, fortran, fountain, golang, html,
+#               java, matlab, objc, pascal, perl, php, python, ruby, rust, tex
+#------------------------------------------------------------------------------#
+# SETTINGS (https://docs.gitlab.com/ee/user/project/highlighting.html)
+#          (https://www.rubydoc.info/github/github/linguist)
+#
+# gitlab-language       : provide syntax highlighting for custom files in gitlab
+# linguist-language     : provide syntax highlighting for custome files in github
+#
+#     built-in: actionscript, apache, apiblueprint applescript, awk, biml, bsl,
+#               c, cfscript, clj, cmake, coffee, elisp, conf, console, cpp,
+#               csharp, css, d, docker, dot, erb, erlang, fortran, glsl, go,
+#               gradle, graphql, groovy, haskell, hcl, ini, java, javascript,
+#               jinja, json, json-doc, llvm, lua, make, markdown, matlab, nginx,
+#               objc, pascal, perl, php, text, powershell, prometheus,
+#               properties, protobuf, puppet, python, qml, ruby, rust, scala,
+#               sed, sql, swift, terraform, tex, toml, typescript, visualbasic,
+#               xml, yaml
+#
+#     special: conf - generic configuration files
+#              console - generic terminal shell
+#              diff - unified diffs
+#              escape - escaped content
+#              http - http req and resp
+#              shell - various shell languages
+#------------------------------------------------------------------------------#
+* text=auto
+
+# code
+*.h		text diff=c
+*.c		text diff=c
+*.cpp	text diff=cpp
+*.hpp	text diff=cpp
+*.inl	text diff=cpp
+*.cs	text diff=csharp
+*.go	text diff=golang
+*.py	text diff=python
+*.pl	text diff=perl
+
+# documents
+*.doc	diff=astextplain
+*.docx	diff=astextplain
+*.dot	diff=astextplain
+*.pdf	diff=astextplain
+*.rtf	diff=astextplain
+*.html	text diff=html
+*.css	text diff=css
+*.json	text
+*.toml	text
+*.xml	text
+*.yaml	text
+*.yml	text
+*.csv	text
+*.tsv	text
+*.txt	text
+*.md	text
+
+# graphics
+*.svg	text

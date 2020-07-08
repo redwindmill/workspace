@@ -1,0 +1,21 @@
+[:${DRACULA_CUSTOM_PROFILE_ID}]
+scrollback-unlimited=false
+bold-color='rgb(190,161,229)'
+bold-color-same-as-fg=false
+highlight-foreground-color='rgb(231,231,231)'
+cursor-foreground-color='rgb(255,255,255)'
+background-color='rgb(13,13,13)'
+visible-name='dracula_custom'
+default-size-columns=128
+use-theme-colors=false
+font='IBM Plex Mono Light 12'
+default-size-rows=32
+use-system-font=false
+cursor-background-color='rgb(48,51,64)'
+palette=['rgb(38,38,38)', 'rgb(191,48,50)', 'rgb(31,204,74)', 'rgb(204,183,61)', 'rgb(110,70,164)', 'rgb(227,86,167)', 'rgb(71,182,204)', 'rgb(204,204,204)', 'rgb(122,122,122)', 'rgb(204,88,82)', 'rgb(106,255,158)', 'rgb(241,250,140)', 'rgb(202,169,250)', 'rgb(255,146,208)', 'rgb(0,229,229)', 'rgb(229,229,229)']
+highlight-background-color='rgb(127,44,48)'
+scrollback-lines=16384
+foreground-color='rgb(231,231,231)'
+highlight-colors-set=true
+cursor-blink-mode='on'
+use-theme-transparency=false
