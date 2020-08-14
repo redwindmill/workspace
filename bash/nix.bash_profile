@@ -206,11 +206,24 @@ red-fzfp() {
 
 red-wt-gitstatus() {
 	sleep "0.$(( RANDOM % 100 ))"
-	watch -tcn 3 ' \
-		git remote get-url origin && \
+	if [ ! -e ".gitstatus" ]; then
+		watch -tcn 3 ' \
+			git remote get-url origin && \
 			date && \
 			git -c color.status=always status -sb --show-stash
 		'
+	else
+		while true; do
+			while read REPO; do
+				clear
+				REPO="${REPO/\~/${HOME}}"
+				git -C "${REPO}" remote get-url origin
+				date
+				git -C "${REPO}" -c color.status=always status -sb --show-stash
+				sleep 5
+			done < .gitstatus
+		done
+	fi
 }
 
 red-wt-newmail() {
