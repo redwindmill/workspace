@@ -51,9 +51,10 @@
 	ch = checkout
 	av = add --verbose
 	ap = add --patch
-	ci = commit
+	co = commit
+	cv = commit -v
 	ca = commit --amend
-	cs = "!bash -c 'declare _B; echo -n \"branch (compare): \" && read _B; git rebase -i $(git merge-base HEAD \"${_B}\")'"
+	cr = "!bash -c 'declare _B; echo -n \"rebase from: \" && read _B; git rebase -i $(git merge-base HEAD \"${_B}\")'"
 	us = restore --staged
 	uw = restore --worktree
 	ta = tag -a
