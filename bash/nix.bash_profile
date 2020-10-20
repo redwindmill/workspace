@@ -694,7 +694,13 @@ red-docker-clean() {
 
 	case "${RED__DOCKER_CMD}" in
 	bld)
-		docker builder prune -f
+		if [ ${RED__IS_PURGE} -eq 0 ]; then
+			echo "red-docker-clean: pruning builder"
+			docker builder prune -f
+		else
+			echo "red-docker-clean: purging builder"
+			docker builder prune --all -f
+		fi
 		;;
 	vol)
 		if [ ${RED__IS_PURGE} -eq 0 ]; then
@@ -738,7 +744,7 @@ red-docker-clean() {
 			docker rm --force $(docker ps -qa)
 			docker rmi --force $(docker images -q)
 			docker volume rm $(docker volume ls -q)
-			docker builder prune -f
+			docker builder prune --all -f
 		fi
 		;;
 	*)
