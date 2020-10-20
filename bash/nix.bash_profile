@@ -664,6 +664,7 @@ red__docker_clean_help() {
 	echo "${RED__INDENT}red-docker-clean:  net command does not support purge."
 
 	if [ "${1}" != "red-cmd" ]; then
+		echo "red-docker-clean:  'bld' prunes docker builder"
 		echo "red-docker-clean:  'vol' prunes docker volumes."
 		echo "red-docker-clean:  'img' prunes docker images."
 		echo "red-docker-clean:  'cnt' prunes docker containers."
@@ -692,6 +693,9 @@ red-docker-clean() {
 	done
 
 	case "${RED__DOCKER_CMD}" in
+	bld)
+		docker builder prune -f
+		;;
 	vol)
 		if [ ${RED__IS_PURGE} -eq 0 ]; then
 			echo "red-docker-clean: pruning volumes"
@@ -726,6 +730,7 @@ red-docker-clean() {
 	all)
 		if [ ${RED__IS_PURGE} -eq 0 ]; then
 			echo "red-docker-clean: pruning containers, images and volumes"
+			docker builder prune -f
 			docker system prune --volumes -f
 		else
 			echo "red-docker-clean: purging containers, images and volumes"
@@ -733,6 +738,7 @@ red-docker-clean() {
 			docker rm --force $(docker ps -qa)
 			docker rmi --force $(docker images -q)
 			docker volume rm $(docker volume ls -q)
+			docker builder prune -f
 		fi
 		;;
 	*)
