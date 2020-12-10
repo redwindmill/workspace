@@ -175,6 +175,7 @@ red-cmd() {
 		"red__date_utc_help \"red-cmd\""
 		"red__clip_help \"red-cmd\""
 		"red__ssh_key_help \"red-cmd\""
+		"red__crypt_help \"red-cmd\""
 		"red__gpg_key_help \"red-cmd\""
 		"red__proxy_help \"red-cmd\""
 		"red__git_clean_help \"red-cmd\""
@@ -319,6 +320,42 @@ red-ssh-key() {
 		;;
 	*)
 		red__ssh_key_help
+		;;
+	esac
+}
+
+#------------------------------------------------------------------------------#
+
+red__crypt_help() {
+	if [ "${1}" = "red-cmd" ]; then
+		local red__indent="  "
+	else
+		local red__indent=""
+	fi
+
+	echo "${red__indent}red-crypt: encrypt objects"
+	echo "${red__indent}red-crypt:  red-crypt <sym/decrypt>"
+
+	if [ "${1}" != "red-cmd" ]; then
+		echo "red-crypt:  'sym' symmetric encryption."
+		echo "red-crypt:  'decrypt' decrypts an encrypted file."
+	fi
+
+	echo ""
+}
+
+red-crypt() {
+	case "${1}" in
+	sym)
+		shift
+		gpg --armor --symmetric --cipher-algo TWOFISH "$@"
+		;;
+	decrypt)
+		shift
+		gpg -d "$@"
+		;;
+	*)
+		red__crypt_help
 		;;
 	esac
 }
