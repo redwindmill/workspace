@@ -122,12 +122,14 @@ endf
 com Dir Lexplore
 com SpellLoad exec 'mkspell!' '$HOME/.vim/spell/tech.utf-8.add.spl' '$HOME/.vim/spell/tech.utf-8.add'
 com BufRecycle call s:red__recycle_hidden_buffers()
+com ReAlign exec 'normal! gg=G'
+com ReTab :retab
+com ReTrim :%s/\s\+$//e
 
 com Spell setlocal spell
 com NoSpell setlocal nospell
 com Wspace setlocal list
 com NoWspace setlocal nolist
-com WspaceTrim :%s/\s\+$//e
 com Hls setlocal hls
 com NoHls setlocal nohls
 
