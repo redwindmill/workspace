@@ -48,7 +48,7 @@
 	bd = branch -D
 	bdr = push -d
 	bc = checkout -b
-	ch = checkout
+	ch = checkout --recurse-submodules
 	av = add --verbose
 	ap = add --patch
 	co = commit
