@@ -550,6 +550,18 @@ red__git_pull_recursive() {
 	done
 }
 
+red__git_pull_status() {
+	if [ ! -e "${1}/.gitstatus" ]; then
+		red__git_pull_help "missing .gitstatus file"
+		return 1
+	else
+		while read REPO; do
+			REPO="${REPO/\~/${HOME}}"
+			red__git_pull_safe "${1}/${REPO}" "${2}"
+		done < "${1}/.gitstatus"
+	fi
+}
+
 red__git_pull_help() {
 	if [ "${1}" = "red-cmd" ]; then
 		local RED__INDENT="  "
@@ -559,11 +571,12 @@ red__git_pull_help() {
 	fi
 
 	echo "${RED__INDENT}red-git-pull: helper for syncing git repositories."
-	echo "${RED__INDENT}red-git-pull:  red-git-pull [-r][--dry] <repo>"
+	echo "${RED__INDENT}red-git-pull:  red-git-pull [-r][-s][--dry] <repo>"
 	echo "${RED__INDENT}red-git-pull:  branches named 'local-auto' will automatically be rebased to master."
 
 	if [ "${1}" != "red-cmd" ]; then
 		echo "red-git-pull:  '-r' will search the specified folder for git repositories to pull."
+		echo "red-git-pull:  '-s' will use a .gitstatus file in specified folder for git repositories to clean."
 		echo "red-git-pull:  '--dry' will perform a dry run."
 	fi
 
@@ -573,14 +586,18 @@ red__git_pull_help() {
 red-git-pull() {
 	#parse args
 	local RED__POSITIONAL=
-	local RED__RECURSIVE="false"
+	local RED__MODE="normal"
 	local RED__RUN_TYPE="real"
 
 	while [ $# -gt 0 ]; do
 		local RED__KEY="${1}"
 		case ${RED__KEY} in
 		-r)
-			local RED__RECURSIVE="true"
+			local RED__MODE="recursive"
+			shift
+			;;
+		-s)
+			local RED__MODE="status"
 			shift
 			;;
 		--dry)
@@ -594,12 +611,18 @@ red-git-pull() {
 		esac
 	done
 
+	if [ -z "${RED__POSITIONAL}" ]; then
+		RED__POSITIONAL="."
+	fi
+
 	if [ ! -d "${RED__POSITIONAL}" ]; then
 		red__git_pull_help "invalid directory"
 		return 1
 	fi
 
-	if [ "${RED__RECURSIVE}" == "true" ]; then
+	if [ "${RED__MODE}" = "status" ]; then
+		red__git_pull_status "${RED__POSITIONAL}" "${RED__RUN_TYPE}"
+	elif [ "${RED__MODE}" = "recursive" ]; then
 		red__git_pull_recursive "${RED__POSITIONAL}" "${RED__RUN_TYPE}"
 	else
 		red__git_pull_safe "${RED__POSITIONAL}" "${RED__RUN_TYPE}"
@@ -633,6 +656,18 @@ red__git_clean_recursive() {
 	done
 }
 
+red__git_clean_status() {
+	if [ ! -e "${1}/.gitstatus" ]; then
+		red__git_pull_help "missing .gitstatus file"
+		return 1
+	else
+		while read REPO; do
+			REPO="${REPO/\~/${HOME}}"
+			red__git_clean_safe "${1}/${REPO}" "${2}"
+		done < "${1}/.gitstatus"
+	fi
+}
+
 red__git_clean_help() {
 	if [ "${1}" = "red-cmd" ]; then
 		local RED__INDENT="  "
@@ -642,10 +677,11 @@ red__git_clean_help() {
 	fi
 
 	echo "${RED__INDENT}red-git-clean: helper for cleaning git repositories."
-	echo "${RED__INDENT}red-git-clean:  red-git-clean [-r] <repo>"
+	echo "${RED__INDENT}red-git-clean:  red-git-clean [-r][-s] <repo>"
 
 	if [ "${1}" != "red-cmd" ]; then
 		echo "red-git-clean:  '-r' will search the specified folder for git repositories to clean."
+		echo "red-git-clean:  '-s' will use a .gitstatus file in specified folder for git repositories to clean."
 	fi
 
 	echo ""
@@ -654,14 +690,18 @@ red__git_clean_help() {
 red-git-clean() {
 	#parse args
 	local RED__POSITIONAL=
-	local RED__RECURSIVE="false"
+	local RED__MODE="normal"
 	local RED__RUN_TYPE="real"
 
 	while [ $# -gt 0 ]; do
 		local RED__KEY="${1}"
 		case ${RED__KEY} in
 		-r)
-			local RED__RECURSIVE="true"
+			local RED__MODE="recursive"
+			shift
+			;;
+		-s)
+			local RED__MODE="status"
 			shift
 			;;
 		--dry)
@@ -675,12 +715,18 @@ red-git-clean() {
 		esac
 	done
 
+	if [ -z "${RED__POSITIONAL}" ]; then
+		RED__POSITIONAL="."
+	fi
+
 	if [ ! -d "${RED__POSITIONAL}" ]; then
 		red__git_clean_help "invalid directory"
 		return 1
 	fi
 
-	if [ "${RED__RECURSIVE}" == "true" ]; then
+	if [ "${RED__MODE}" = "status" ]; then
+		red__git_clean_status "${RED__POSITIONAL}" "${RED__RUN_TYPE}"
+	elif [ "${RED__MODE}" == "recursive" ]; then
 		red__git_clean_recursive "${RED__POSITIONAL}" "${RED__RUN_TYPE}"
 	else
 		red__git_clean_safe "${RED__POSITIONAL}" "${RED__RUN_TYPE}"
