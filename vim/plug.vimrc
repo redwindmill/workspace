@@ -11,6 +11,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+"Plug 'dracula/vim',{'name':'dracula'}
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
@@ -19,6 +20,7 @@ Plug 'rip-rip/clang_complete', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
 Plug 'glench/vim-jinja2-syntax', { 'for': ['jinja'] }
 
 call plug#end()
+"colorscheme dracula
 "------------------------------------------------------------------------------"
 
 "LSP - C-LANGUAGES" "TODO:: clangd has issues with std hdrs and default params

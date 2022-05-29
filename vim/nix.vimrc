@@ -24,7 +24,7 @@ set secure												"no shell/write in
 
 "~ FORM ~"
 syntax on
-colorscheme ron
+colorscheme torte
 set background=dark
 set gfn=IBM\ Plex\ Mono:h14,Consolas:h14,Courier:h14
 set ruler												"show col/row
@@ -157,15 +157,15 @@ let s:red__mode_str={
 	\ 'v'		: ' VISUAL ',
 	\}
 
-let s:red__mode_color={
-	\ 'n'		: 231,
-	\ 'no'		: 231,
-	\ 'rm'		: 231,
+let s:red__mode_color_bg={
+	\ 'n'		: 7,
+	\ 'no'		: 7,
+	\ 'rm'		: 7,
 	\ 'i'		: 10,
-	\ 'R'		: 196,
-	\ 'Rv'		: 196,
-	\ 'r?'		: 196,
-	\ 'r'		: 196,
+	\ 'R'		: 9,
+	\ 'Rv'		: 9,
+	\ 'r?'		: 9,
+	\ 'r'		: 9,
 	\ 's'		: 214,
 	\ 'v'		: 214,
 	\ 'S'		: 214,
@@ -179,10 +179,34 @@ let s:red__mode_color={
 	\ 't'		: 14,
 	\}
 
+let s:red__mode_color_fg={
+	\ 'n'		: 0,
+	\ 'no'		: 0,
+	\ 'rm'		: 0,
+	\ 'i'		: 0,
+	\ 'R'		: 0,
+	\ 'Rv'		: 0,
+	\ 'r?'		: 0,
+	\ 'r'		: 0,
+	\ 's'		: 0,
+	\ 'v'		: 0,
+	\ 'S'		: 0,
+	\ 'V'		: 0,
+	\ "\<C-s>"	: 0,
+	\ "\<C-v>"	: 0,
+	\ '!'		: 0,
+	\ 'c'		: 0,
+	\ 'ce'		: 0,
+	\ 'cv'		: 0,
+	\ 't'		: 0,
+	\}
+
 function RED__SETMODECOLOR()
 	let cmode = mode()
-	let cmode_color = get(s:red__mode_color, cmode, 231)
-	exe 'hi! StatusLine ctermfg='cmode_color
+	let cmode_color_fg = get(s:red__mode_color_fg, cmode, 231)
+	let cmode_color_bg = get(s:red__mode_color_bg, cmode, 16)
+	exe 'hi! StatusLine cterm=bold ctermfg='cmode_color_fg
+	exe 'hi! StatusLine ctermbg='cmode_color_bg
 	return ''
 endf
 
