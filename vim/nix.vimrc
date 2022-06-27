@@ -24,7 +24,7 @@ set secure												"no shell/write in
 
 "~ FORM ~"
 syntax on
-colorscheme torte
+colorscheme koehler
 set background=dark
 set gfn=IBM\ Plex\ Mono:h14,Consolas:h14,Courier:h14
 set ruler												"show col/row
