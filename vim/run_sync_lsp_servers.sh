@@ -7,8 +7,9 @@ set -e
 NAME_SCRIPT=$(basename "${0}")
 
 echo "${NAME_SCRIPT}: installing gopls"
-go get -u golang.org/x/tools/cmd/gopls
+mkdir "${HOME}/bin"
+chmod 700 "${HOME}/bin"
+go install go install golang.org/x/tools/gopls@latest
 
 echo "${NAME_SCRIPT}: installing pyls"
 pip3 install python-language-server --upgrade
-
