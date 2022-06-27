@@ -2,6 +2,7 @@
 export EDITOR=vim
 export VISUAL=vim
 export P4CONFIG=.p4config
+export GPG_TTY=$(tty)
 
 SHELL_SESSION_HISTORY=0
 HISTFILESIZE=0
@@ -928,21 +929,25 @@ red-proxy() {
 
 #------------------------------------------------------------------------------#
 
-red__safe_path_add "OSX" "TAIL" "/usr/local/sbin"						#brew sbin
-red__safe_path_add "OSX" "HEAD" "/usr/local/opt/python/libexec/bin"		#brew python
-red__safe_path_add "OSX" "HEAD" "/usr/local/opt/curl/bin"				#brew curl
-red__safe_path_add "OSX" "HEAD" "/usr/local/opt/make/libexec/gnubin"	#brew make
-red__safe_path_add "OSX" "HEAD" "/usr/local/opt/grep/libexec/gnubin"	#brew grep
+[ "${RED__KIND_OS}" = "OSX" ] && red__source_if_exists "/opt/homebrew/etc/bash_completion"
+[ "${RED__KIND_OS}" = "OSX" ] && red__eval_if_exists "/opt/homebrew/bin/brew" "shellenv"
 
-red__safe_path_add "${RED__KIND_OS}" "TAIL" "${HOME}/go/bin"	#golang bins
-red__safe_path_add "${RED__KIND_OS}" "TAIL" "${HOME}/rbin"		#red bins
+red__safe_path_add "OSX" "HEAD" "/opt/homebrew/opt/curl/bin"				#brew curl
+red__safe_path_add "OSX" "HEAD" "/opt/homebrew/opt/python/libexec/bin"		#brew python
+red__safe_path_add "OSX" "HEAD" "/opt/homebrew/opt/make/libexec/gnubin"	#brew make
+red__safe_path_add "OSX" "HEAD" "/opt/homebrew/opt/grep/libexec/gnubin"	#brew grep
 
 #------------------------------------------------------------------------------#
 
-[ "${RED__KIND_OS}" = "OSX" ] && red__source_if_exists "/usr/local/etc/bash_completion"
 [ "${RED__KIND_OS}" = "NIX" ] && red__eval_if_exists "/home/linuxbrew/.linuxbrew/bin/brew" "shellenv"
 [ "${RED__KIND_OS}" = "NIX" ] && red__source_if_exists "/home/linuxbrew/.linuxbrew/etc/profile.d/bash_completion.sh"
+
+#------------------------------------------------------------------------------#
+
 [ -f "${HOME}/.fzf.bash" ] && mv "${HOME}/.fzf.bash" "${HOME}/.bashrc.fzf"
+
+red__safe_path_add "${RED__KIND_OS}" "TAIL" "${HOME}/bin"	#local bins
+red__safe_path_add "${RED__KIND_OS}" "TAIL" "${HOME}/go/bin"	#go bins
 
 red__source_if_exists "${HOME}/.bashrc.local"
 red__source_if_exists "${HOME}/.bashrc.fzf"
