@@ -929,18 +929,22 @@ red-proxy() {
 
 #------------------------------------------------------------------------------#
 
-[ "${RED__KIND_OS}" = "OSX" ] && red__source_if_exists "/opt/homebrew/etc/bash_completion"
-[ "${RED__KIND_OS}" = "OSX" ] && red__eval_if_exists "/opt/homebrew/bin/brew" "shellenv"
+RED__HOMEBREW_DIR=
+if [ -d "/opt/homebrew" ]; then
+	RED__HOMEBREW_DIR="/opt/homebrew"
+elif [ -d "/usr/local/Homebrew" ]; then
+	RED__HOMEBREW_DIR="/usr/local"
+fi
 
-red__safe_path_add "OSX" "HEAD" "/opt/homebrew/opt/curl/bin"				#brew curl
-red__safe_path_add "OSX" "HEAD" "/opt/homebrew/opt/python/libexec/bin"		#brew python
-red__safe_path_add "OSX" "HEAD" "/opt/homebrew/opt/make/libexec/gnubin"	#brew make
-red__safe_path_add "OSX" "HEAD" "/opt/homebrew/opt/grep/libexec/gnubin"	#brew grep
+if [ -n "${RED__HOMEBREW_DIR}" ]; then
+	[ "${RED__KIND_OS}" = "OSX" ] && red__source_if_exists "${RED__HOMEBREW_DIR}/etc/bash_completion"
+	[ "${RED__KIND_OS}" = "OSX" ] && red__eval_if_exists "${RED__HOMEBREW_DIR}/bin/brew" "shellenv"
 
-#------------------------------------------------------------------------------#
-
-[ "${RED__KIND_OS}" = "NIX" ] && red__eval_if_exists "/home/linuxbrew/.linuxbrew/bin/brew" "shellenv"
-[ "${RED__KIND_OS}" = "NIX" ] && red__source_if_exists "/home/linuxbrew/.linuxbrew/etc/profile.d/bash_completion.sh"
+	red__safe_path_add "OSX" "HEAD" "${RED__HOMEBREW_DIR}/opt/curl/bin"				#brew curl
+	red__safe_path_add "OSX" "HEAD" "${RED__HOMEBREW_DIR}/opt/python/libexec/bin"	#brew python
+	red__safe_path_add "OSX" "HEAD" "${RED__HOMEBREW_DIR}/opt/make/libexec/gnubin"	#brew make
+	red__safe_path_add "OSX" "HEAD" "${RED__HOMEBREW_DIR}/opt/grep/libexec/gnubin"	#brew grep
+fi
 
 #------------------------------------------------------------------------------#
 
