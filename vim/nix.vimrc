@@ -125,6 +125,7 @@ com BufRecycle call s:red__recycle_hidden_buffers()
 com ReAlign exec 'normal! gg=G'
 com ReTab :retab
 com ReTrim :%s/\s\+$//e
+com ReSpace :set expandtab | retab
 
 com Spell setlocal spell
 com NoSpell setlocal nospell
