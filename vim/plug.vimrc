@@ -16,7 +16,7 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'ajh17/vimcompletesme'
+Plug 'ervandew/supertab'
 Plug 'rip-rip/clang_complete', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
 Plug 'glench/vim-jinja2-syntax', { 'for': ['jinja'] }
 
